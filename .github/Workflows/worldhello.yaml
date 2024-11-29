@@ -1,15 +1,15 @@
-version: 2.1
+ name: "Hello world workflow"
 
-jobs:
-  hello-job:
-    docker:
-      - image: cimg/node:17.2
-    steps:
-      - checkout
-      - run:
-          command: echo "Hello, World!"
+ on: 
+   push:
+     branches: 
+       - master
+       - production
 
-workflows:
-  my-workflow:
-    jobs:
-      - hello-job
+
+ jobs:
+   hello_world:
+     runs-on: ubuntu-latest
+     steps:
+       - name: "first hello world"
+         run: echo "Hello, World!"
